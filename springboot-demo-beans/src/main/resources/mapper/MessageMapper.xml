@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jdrx.springboot.demo.beans.dao.UserDao" >
+	<select id="getById" resultType="UserPO">
+		select * from user_info where user_id=#{zz}
+	</select>
+	<insert id="insert">
+		insert into user_info(user_id,user_name,user_sex,user_phone,user_pw,user_type)
+		values (#{user_id},#{user_name},#{user_sex},#{user_phone},#{user_pw},#{user_type})
+	</insert>
+	<update id="update">
+		update user_info set user_name = #{user_name} where user_id = #{user_id}
+	</update>
+</mapper>
