@@ -1,6 +1,8 @@
 package com.jdrx.springboot.clickmeiiiiiiiiiiiiiii0_0iiiiiiiiiiiiiiii;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -9,6 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date : 2019/02/14 11:44
  */
 public class Test111 {
+    static int i = 0;
     /**
      * Proceed in 3 steps:
      *
@@ -30,26 +33,51 @@ public class Test111 {
      * and so reject the task.
      */
     public static void main(String[] args) throws InterruptedException {
-        A a = new A();
-        new Thread(()->{
-//            synchronized (new String()){
-                a.i = 100;
+        Map<String,String> map = new HashMap<>();
+        map.put(null, "11");
+        System.out.println(map.get(null));
+
+        new Thread(() -> {
+//            synchronized ("aa"){
+                i = 1000;
                 try {
-                    Thread.sleep(200000);
+                    Thread.sleep(4000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
+
+                System.out.println("修改完成...");
 //            }
         }).start();
-        while (true) {
-            System.out.println(a.i);
-            Thread.sleep(2000);
+
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+
+        while(true){
+            if (i == 0) {
+                break;
+            } else{
+                System.out.println("读取到修改会的值：" + i);
+                return;
+            }
+        }
+
+
     }
 
 }
 class A{
     int i;
+    static A a = new A();
+    static int count = 1;
+     A(){
+        count ++;
+    }
 
 }
 

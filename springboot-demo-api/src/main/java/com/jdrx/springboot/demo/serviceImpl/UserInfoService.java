@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author DengXueLong
  * @Date 2018/3/30 13:58
@@ -31,10 +34,19 @@ public class UserInfoService {
         }
         int i = 1/0;
     }
-    @Transactional(propagation = Propagation.NESTED,rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void update(){
         userDao.update(new UserPO(1,"aa11","1","1235555","111","1"));
         int i = 1/0;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void updateTest(){
+        List<Map<String,Object>> data = userDao.statCountForOne();
+        userDao.update(new UserPO(1,"dxl","111","1235555","111","1"));
+        new Thread(() -> {
+            userInfoService.update();
+        }).start();
     }
 
 }

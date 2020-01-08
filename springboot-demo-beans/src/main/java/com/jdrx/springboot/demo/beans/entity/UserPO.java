@@ -1,6 +1,10 @@
 package com.jdrx.springboot.demo.beans.entity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 //@Component
 public class UserPO {
@@ -20,7 +24,10 @@ public class UserPO {
 		this.user_type = user_type;
 	}
 
-	public Integer getUser_id() {
+    public UserPO() {
+    }
+
+    public Integer getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(Integer user_id) {
@@ -61,5 +68,14 @@ public class UserPO {
 		return "UserPO [user_id=" + user_id + ", user_name=" + user_name + ", user_sex=" + user_sex + ", user_phone="
 				+ user_phone + ", user_pw=" + user_pw + ", user_type=" + user_type + "]";
 	}
+
+	public static void main(String[] args) throws IOException {
+		UserPO u = new UserPO(1,"343","dfdf", "dfd","dfd","ddd");
+		//序列化
+        String json = new ObjectMapper().writeValueAsString(u);
+        //反序列化
+        UserPO userPO = new ObjectMapper().readValue(json.getBytes(), UserPO.class);
+        System.out.println(json);
+    }
 	
 }

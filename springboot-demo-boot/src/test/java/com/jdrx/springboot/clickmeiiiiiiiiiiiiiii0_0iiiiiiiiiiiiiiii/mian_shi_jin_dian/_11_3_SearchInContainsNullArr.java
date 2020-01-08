@@ -1,5 +1,10 @@
 package com.jdrx.springboot.clickmeiiiiiiiiiiiiiii0_0iiiiiiiiiiiiiiii.mian_shi_jin_dian;
 
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.HashMap;
+
 /**
  * @author : dengxuelong
  * @date : 2019/06/20 17:18
@@ -65,13 +70,38 @@ public class _11_3_SearchInContainsNullArr {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Assert.assertEquals(last(new int[]{5,5,7},5),1);
+        assert last(new int[]{5,5,7},5) == 1;
         System.out.println(last(new int[]{5,5,7},5));
         System.out.println(last(new int[]{1,2,2,5,7},5));
         System.out.println(searchInContainsNullArr(new String[]{"aaa","","","ba","","bc","","","c","","","d"}, "aaa"));
         System.out.println(searchInContainsNullArr(new String[]{"aaa","","","ba","","bc","","","c","","","d"}, "d"));
         System.out.println(searchInContainsNullArr(new String[]{"aaa","","","ba","","bc","","","c","","","d"}, "bc"));
         System.out.println(searchInContainsNullArr(new String[]{"aaa","","","ba","","bc","","","c","","","d"}, "aa1"));
+    }
+
+    public static void t(){
+        int i;
+    }
+
+    public static void main(String[] args) {
+        HashMap<String,Integer> map = new HashMap<>(2);
+        map.put("aa",1010);
     }
 }
 

@@ -27,22 +27,26 @@ import java.util.concurrent.*;
      * @param1 args
      */
     public static void main(String[] args) throws InterruptedException {
-        LinkedBlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(1);
-        ThreadPoolExecutor t = new ThreadPoolExecutor(0 ,2,
-                111, TimeUnit.SECONDS, workQueue);
-        for (int i = 0; i < 3; i++) {
-            t.execute(() -> {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("worker 1-------------------");
-            });
-        }
+        System.out.println(T.i);
+        System.out.println("-------");
+        System.out.println(J.i);
     }
-
-
+}
+class T{
+    static Integer i = 2;
+    static T t = new T();
+     private T(){
+         i ++;
+         System.out.println("instance T");
+     }
+}
+class J{
+    static J t = new J();
+    static int i;
+    private J(){
+        i ++;
+        System.out.println("instance J");
+    }
 }
 
 

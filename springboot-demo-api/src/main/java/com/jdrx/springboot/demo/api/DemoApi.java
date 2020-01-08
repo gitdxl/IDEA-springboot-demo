@@ -86,6 +86,12 @@ public class DemoApi {
 		return "zz";
 	}
 
+	@PostMapping("updateTest")
+	public void updateTest(){
+		userInfoServiceImpl1.updateTest();
+	}
+
+
 	@ApiOperation("jdk代理 保存用户")
 	@PostMapping("saveUserWithJDK")
 	public void saveUser(){

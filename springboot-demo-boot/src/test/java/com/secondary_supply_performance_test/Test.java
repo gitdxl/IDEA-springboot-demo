@@ -1,7 +1,6 @@
 package com.secondary_supply_performance_test;
 
 import com.jdrx.springboot.demo.helper.PortalLinksApiHelper;
-import com.jdrx.springboot.roleTest.UrlEnums;
 import com.jdrx.springboot.utils.TestUtils;
 
 import java.util.HashMap;

@@ -1,8 +1,12 @@
 package com.jdrx.springboot.clickmeiiiiiiiiiiiiiii0_0iiiiiiiiiiiiiiii.mian_shi_jin_dian;
 
 import com.fr.function.IF;
+import com.fr.web.core.A.VA;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 有一个循环移动后的升序数组，在其中查找一个值
@@ -10,6 +14,7 @@ import java.util.Arrays;
  * @date : 2019/06/20 15:31
  */
 public class _11_2_LoopArraySearch {
+
     public static int loopArraySearch(int [] arr, int value){
         if (arr == null) {
             return -1;
@@ -46,7 +51,35 @@ public class _11_2_LoopArraySearch {
         return -1;
     }
 
+    public static void test(HashMap<String,Integer> map){
+        Set<String> set = new HashSet<>();
+        for (String s : map.keySet()) {
+            if ("aa".equals(s)) {
+                set.add(s);
+            }
+        }
+
+    }
+
+    public static void reverse(int value){
+        double left = 0;
+        double right = value;
+        double middle = (left + right) / 2;
+        while ((right - left) > 0.000001) {
+            double i = middle * middle;
+            if(i > value){
+                right = middle;
+            }else{
+                left = middle;
+            }
+            middle = (left + right) / 2;
+        }
+        System.out.println(middle);
+    }
+
     public static void main(String[] args) {
+        System.out.println(0.1 * 100);
+        char[] chars = "s".toCharArray();
         System.out.println(loopArraySearch(new int[]{1,2,3,4,5,7,10,11,22,33,55,100}, 5));
         System.out.println(loopArraySearch(new int[]{10,11,22,33,55,100,1,2,3,4,5,7}, 5));
         System.out.println(loopArraySearch(new int[]{10,11,22,33,55,100,1,2,3,4,7}, 5));

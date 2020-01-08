@@ -4,6 +4,48 @@
 	<select id="getById" resultType="UserPO">
 		select * from user_info where user_id=#{zz}
 	</select>
+	<select id="statCountForOne" resultType="java.util.Map">
+		set @last:=-1;
+
+		-- select id,name,age,null as v,@last:=-1 from student where 1=2 union all
+		select * ,
+			case
+				-- 当前值等于1 并且上一条记录的值不为1
+				when age = 1 and @last != 1 then 1
+				else 0
+			end as v,
+			@last:=age
+		from student
+	</select>
+
+	<select id="statCountForOneNoSet" resultType="java.util.Map">
+		-- select id,name,age,null as v,@last:=-1 from student where 1=2 union all
+		select * ,
+		case
+		-- 当前值等于1 并且上一条记录的值不为1
+		when age = 1 and @last != 1 then 1
+		else 0
+		end as v,
+		@last:=age
+		from student
+	</select>
+	<select id="testMultiSelect" >
+		select * from student;
+		select * from student;
+	</select>
+
+	<select id="statCountForOneUseUnionAll" resultType="java.util.Map">
+		select id,name,age,null as v,@last:=-1 from student where 1=2 union all
+		select * ,
+		case
+		-- 当前值等于1 并且上一条记录的值不为1
+		when age = 1 and @last != 1 then 1
+		else 0
+		end as v,
+		@last:=age
+		from student
+	</select>
+
 	<insert id="insert">
 		insert into user_info(user_id,user_name,user_sex,user_phone,user_pw,user_type)
 		values (#{user_id},#{user_name},#{user_sex},#{user_phone},#{user_pw},#{user_type})
