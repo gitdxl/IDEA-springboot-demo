@@ -32,6 +32,13 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.jdrx.platform</groupId>
+			<artifactId>platform-generator</artifactId>
+			<version>2.1.5</version>
+			<scope>test</scope>
+		</dependency>
     </dependencies>
 
 </project>

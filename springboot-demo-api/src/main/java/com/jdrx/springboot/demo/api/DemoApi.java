@@ -69,14 +69,6 @@ public class DemoApi {
 	@RequestMapping(value="/apiModelTest",method=RequestMethod.POST)
 	@Transactional
 	public String apiModelTest(@Valid @RequestBody @ApiParam(name="userDTO",value="userDTO的json字符串",required=true)UserDTO userDto){
-		redisTemplate.execute(new RedisCallback<Object>() {
-			@Override
-			public Object doInRedis(RedisConnection connection) throws DataAccessException {
-				connection.set("aaa".getBytes(),"aaa".getBytes());
-				int i = 1/0;
-				return null;
-			}
-		});
 		return userDto.getId()+"";
 	}
 	@ApiOperation(value = "redis测试")

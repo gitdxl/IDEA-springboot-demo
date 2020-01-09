@@ -1,0 +1,29 @@
+#MyBatis代码生成配置
+generator:
+  #数据库对象名的开始符号
+  beginning-delimiter: "\""
+  #数据库对象名的结束符号
+  ending-delimiter: "\""
+  #数据源配置
+  data-source:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  #基础包名（默认：com.jdrx）
+  base-package: com.jdrx.smartyu.cpf
+  #Service模块名称（默认：${user.home}/api）
+  service-module-name: /springboot-demo-api
+  #bean模块名称（默认：${user.home}/beans）
+  bean-module-name: /springboot-demo-beans
+  #注解形式:ANNOTATEDMAPPER，XML形式:XMLMAPPER，XML和注解混合形式:MIXEDMAPPER（默认：MIXEDMAPPER）
+  mapper-pattern: XMLMAPPER
+  #生成的表名，多个用逗号分割（默认：*，表示所有表）
+  table-name: "*"
+#  table-name: iot_dictionary
+  #表名前缀，多个用逗号分割
+  table-prefix:
+  #Dao 文件的后缀名，可自定义，Dao，DAO，Mapper等等，默认Dao
+  daoSuffix: Dao
+  #生成代码的范围，min：（仅生产PO，BaseDao），standard：（包括min的，外加Dao，Service，Api的类文件），max（包括standard的，外加，Api方法，Service方法，Dao方法，DTO，VO），默认为standard
+  level: min
