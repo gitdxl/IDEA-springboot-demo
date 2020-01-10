@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.TttttDao">
+        <resultMap id="TttttResultMap" type="com.jdrx.smartyu.cpf.beans.entity.TttttPO" extends="com.jdrx.smartyu.cpf.dao.base.TttttBaseDao.BaseResultMap">
+        </resultMap>
+
+    <sql id="Ttttt_Column_List">
+        <include refid="com.jdrx.smartyu.cpf.dao.base.TttttBaseDao.Base_Column_List"/>
+    </sql>
+
+
+</mapper>

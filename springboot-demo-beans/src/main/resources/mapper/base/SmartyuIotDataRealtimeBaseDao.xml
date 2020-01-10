@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.base.SmartyuIotDataRealtimeBaseDao">
+  <resultMap id="BaseResultMap" type="com.jdrx.smartyu.cpf.beans.entity.SmartyuIotDataRealtimePO">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="iot_id" jdbcType="VARCHAR" property="iotId" />
+    <result column="data_value" jdbcType="VARCHAR" property="dataValue" />
+    <result column="data_time" jdbcType="TIMESTAMP" property="dataTime" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.jdrx.smartyu.cpf.beans.entity.SmartyuIotDataRealtimePO">
+    <result column="data_pack" jdbcType="LONGVARCHAR" property="dataPack" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    data_pack
+  </sql>
+  <insert id="insert" parameterType="com.jdrx.smartyu.cpf.beans.entity.SmartyuIotDataRealtimePO">
+    insert into smartyu_iot_data_realtime (id, iot_id, data_value, 
+      data_time, create_at, data_pack
+      )
+    values (#{id,jdbcType=INTEGER}, #{iotId,jdbcType=VARCHAR}, #{dataValue,jdbcType=VARCHAR}, 
+      #{dataTime,jdbcType=TIMESTAMP}, #{createAt,jdbcType=TIMESTAMP}, #{dataPack,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jdrx.smartyu.cpf.beans.entity.SmartyuIotDataRealtimePO">
+    insert into smartyu_iot_data_realtime
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="iotId != null">
+        iot_id,
+      </if>
+      <if test="dataValue != null">
+        data_value,
+      </if>
+      <if test="dataTime != null">
+        data_time,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="dataPack != null">
+        data_pack,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="iotId != null">
+        #{iotId,jdbcType=VARCHAR},
+      </if>
+      <if test="dataValue != null">
+        #{dataValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTime != null">
+        #{dataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataPack != null">
+        #{dataPack,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

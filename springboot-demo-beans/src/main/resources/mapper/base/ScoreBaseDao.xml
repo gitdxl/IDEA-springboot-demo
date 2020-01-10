@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.base.ScoreBaseDao">
+  <resultMap id="BaseResultMap" type="com.jdrx.smartyu.cpf.beans.entity.ScorePO">
+    <id column="score_id" jdbcType="INTEGER" property="scoreId" />
+    <result column="course_name" jdbcType="VARCHAR" property="courseName" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    score_id, course_name, score, student_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from score
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from score
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="score_id" keyProperty="scoreId" parameterType="com.jdrx.smartyu.cpf.beans.entity.ScorePO" useGeneratedKeys="true">
+    insert into score (course_name, score, student_id
+      )
+    values (#{courseName,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="score_id" keyProperty="scoreId" parameterType="com.jdrx.smartyu.cpf.beans.entity.ScorePO" useGeneratedKeys="true">
+    insert into score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseName != null">
+        course_name,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseName != null">
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jdrx.smartyu.cpf.beans.entity.ScorePO">
+    update score
+    <set>
+      <if test="courseName != null">
+        course_name = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jdrx.smartyu.cpf.beans.entity.ScorePO">
+    update score
+    set course_name = #{courseName,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      student_id = #{studentId,jdbcType=INTEGER}
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </update>
+</mapper>

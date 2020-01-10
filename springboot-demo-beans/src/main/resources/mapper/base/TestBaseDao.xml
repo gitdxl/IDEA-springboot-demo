@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.base.TestBaseDao">
+  <resultMap id="BaseResultMap" type="com.jdrx.smartyu.cpf.beans.entity.TestPO">
+    <result column="i3" jdbcType="INTEGER" property="i3" />
+    <result column="i6" jdbcType="INTEGER" property="i6" />
+    <result column="i9" jdbcType="INTEGER" property="i9" />
+    <result column="datetime1" jdbcType="TIMESTAMP" property="datetime1" />
+    <result column="timestamp1" jdbcType="TIMESTAMP" property="timestamp1" />
+  </resultMap>
+  <insert id="insert" parameterType="com.jdrx.smartyu.cpf.beans.entity.TestPO">
+    insert into test (i3, i6, i9, datetime1, 
+      timestamp1)
+    values (#{i3,jdbcType=INTEGER}, #{i6,jdbcType=INTEGER}, #{i9,jdbcType=INTEGER}, #{datetime1,jdbcType=TIMESTAMP}, 
+      #{timestamp1,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jdrx.smartyu.cpf.beans.entity.TestPO">
+    insert into test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="i3 != null">
+        i3,
+      </if>
+      <if test="i6 != null">
+        i6,
+      </if>
+      <if test="i9 != null">
+        i9,
+      </if>
+      <if test="datetime1 != null">
+        datetime1,
+      </if>
+      <if test="timestamp1 != null">
+        timestamp1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="i3 != null">
+        #{i3,jdbcType=INTEGER},
+      </if>
+      <if test="i6 != null">
+        #{i6,jdbcType=INTEGER},
+      </if>
+      <if test="i9 != null">
+        #{i9,jdbcType=INTEGER},
+      </if>
+      <if test="datetime1 != null">
+        #{datetime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timestamp1 != null">
+        #{timestamp1,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.ScoreDao">
+        <resultMap id="ScoreResultMap" type="com.jdrx.smartyu.cpf.beans.entity.ScorePO" extends="com.jdrx.smartyu.cpf.dao.base.ScoreBaseDao.BaseResultMap">
+        </resultMap>
+
+    <sql id="Score_Column_List">
+        <include refid="com.jdrx.smartyu.cpf.dao.base.ScoreBaseDao.Base_Column_List"/>
+    </sql>
+
+
+</mapper>

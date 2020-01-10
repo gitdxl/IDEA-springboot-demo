@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.RoleDao">
+        <resultMap id="RoleResultMap" type="com.jdrx.smartyu.cpf.beans.entity.RolePO" extends="com.jdrx.smartyu.cpf.dao.base.RoleBaseDao.BaseResultMap">
+        </resultMap>
+
+    <sql id="Role_Column_List">
+        <include refid="com.jdrx.smartyu.cpf.dao.base.RoleBaseDao.Base_Column_List"/>
+    </sql>
+
+
+</mapper>

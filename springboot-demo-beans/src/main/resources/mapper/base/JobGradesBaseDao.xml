@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.base.JobGradesBaseDao">
+  <resultMap id="BaseResultMap" type="com.jdrx.smartyu.cpf.beans.entity.JobGradesPO">
+    <result column="grade_level" jdbcType="VARCHAR" property="gradeLevel" />
+    <result column="lowest_sal" jdbcType="INTEGER" property="lowestSal" />
+    <result column="highest_sal" jdbcType="INTEGER" property="highestSal" />
+  </resultMap>
+  <insert id="insert" parameterType="com.jdrx.smartyu.cpf.beans.entity.JobGradesPO">
+    insert into job_grades (grade_level, lowest_sal, highest_sal
+      )
+    values (#{gradeLevel,jdbcType=VARCHAR}, #{lowestSal,jdbcType=INTEGER}, #{highestSal,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jdrx.smartyu.cpf.beans.entity.JobGradesPO">
+    insert into job_grades
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gradeLevel != null">
+        grade_level,
+      </if>
+      <if test="lowestSal != null">
+        lowest_sal,
+      </if>
+      <if test="highestSal != null">
+        highest_sal,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gradeLevel != null">
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="lowestSal != null">
+        #{lowestSal,jdbcType=INTEGER},
+      </if>
+      <if test="highestSal != null">
+        #{highestSal,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdrx.smartyu.cpf.dao.base.AaaaBaseDao">
+  <resultMap id="BaseResultMap" type="com.jdrx.smartyu.cpf.beans.entity.AaaaPO">
+    <result column="a" jdbcType="INTEGER" property="a" />
+    <result column="b" jdbcType="INTEGER" property="b" />
+  </resultMap>
+  <insert id="insert" parameterType="com.jdrx.smartyu.cpf.beans.entity.AaaaPO">
+    insert into aaaa ("a", b)
+    values (#{a,jdbcType=INTEGER}, #{b,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jdrx.smartyu.cpf.beans.entity.AaaaPO">
+    insert into aaaa
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="a != null">
+        "a",
+      </if>
+      <if test="b != null">
+        b,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="a != null">
+        #{a,jdbcType=INTEGER},
+      </if>
+      <if test="b != null">
+        #{b,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
