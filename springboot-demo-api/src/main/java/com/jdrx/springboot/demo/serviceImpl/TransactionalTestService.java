@@ -1,6 +1,6 @@
 package com.jdrx.springboot.demo.serviceImpl;
 
-import com.jdrx.springboot.demo.beans.dao.UserDao;
+import com.jdrx.smartyu.cpf.dao.UserDao;
 import com.jdrx.springboot.demo.beans.entity.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TransactionalTestService {
-    @Autowired
+//    @Autowired
     UserDao userDao;
     @Autowired
     TransactionalTestService tts;

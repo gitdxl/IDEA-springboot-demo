@@ -1,6 +1,6 @@
 package com.jdrx.springboot.demo.serviceImpl;
 
-import com.jdrx.springboot.demo.beans.dao.UserDao;
+import com.jdrx.smartyu.cpf.dao.UserDao;
 import com.jdrx.springboot.demo.beans.entity.UserPO;
 import com.jdrx.springboot.demo.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class UserInfoServiceImpl implements IUserInfoService {
-    @Autowired
+//    @Autowired
     UserDao userDao;
     @Autowired
     UserInfoServiceImpl userInfoServiceImpl;

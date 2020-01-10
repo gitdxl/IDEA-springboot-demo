@@ -26,4 +26,4 @@ generator:
   #Dao 文件的后缀名，可自定义，Dao，DAO，Mapper等等，默认Dao
   daoSuffix: Dao
   #生成代码的范围，min：（仅生产PO，BaseDao），standard：（包括min的，外加Dao，Service，Api的类文件），max（包括standard的，外加，Api方法，Service方法，Dao方法，DTO，VO），默认为standard
-  level: min
+  level:

@@ -1,6 +1,6 @@
 package com.jdrx.springboot.demo.serviceImpl;
 
-import com.jdrx.springboot.demo.beans.dao.UserDao;
+import com.jdrx.smartyu.cpf.dao.UserDao;
 import com.jdrx.springboot.demo.beans.entity.Address;
 import com.jdrx.springboot.demo.beans.entity.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Map;
  */
 @Service
 public class UserInfoService {
-    @Autowired
+//    @Autowired
     UserDao userDao;
     @Autowired
     UserInfoService userInfoService;

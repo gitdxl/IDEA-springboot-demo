@@ -1,4 +1,4 @@
-package com.jdrx.springboot.demo.beans.dao;
+package com.jdrx.smartyu.cpf.dao;
 
 
 import org.springframework.stereotype.Repository;

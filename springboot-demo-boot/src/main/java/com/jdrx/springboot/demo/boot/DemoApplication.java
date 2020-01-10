@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @ComponentScan("com.jdrx")
 @EnableAutoConfiguration
-@MapperScan("com.jdrx.springboot.demo.beans.dao")
+@MapperScan("com.jdrx.smartyu.cpf.dao")
 @EnableSwagger2
 public class DemoApplication {
 	public static void main(String[] args) {

@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 public class DynamicProxyTest {
 
     public static void main(String[] args) {
-        DynamicProxy dynamicProxy = new DynamicProxy().;
+        DynamicProxy dynamicProxy = new DynamicProxy();
 
     }
 }

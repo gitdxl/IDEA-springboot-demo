@@ -1,11 +1,10 @@
 package com.jdrx.springboot.demo.api;
 
-import com.jdrx.springboot.demo.beans.dao.UserDao;
+import com.jdrx.smartyu.cpf.dao.UserDao;
 import com.jdrx.springboot.demo.beans.dto.UserDTO;
 import com.jdrx.springboot.demo.beans.entity.UserPO;
 import com.jdrx.springboot.demo.service.IUserInfoService;
 import com.jdrx.springboot.demo.serviceImpl.UserInfoService;
-import com.jdrx.springboot.demo.serviceImpl.UserInfoServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -13,9 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
