@@ -12,6 +12,12 @@ import java.util.concurrent.*;
  * Created by dengxuelong on 2017/11/15.
  */
  class Test {
+     public void aaa(){
+         Object lock = new Object();
+         synchronized (lock){
+             System.out.println(111);
+         }
+     }
      public int i;
 
     /**
@@ -26,10 +32,33 @@ import java.util.concurrent.*;
      * @param args dfff</li><li>c</li></ul>
      * @param1 args
      */
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println(T.i);
-        System.out.println("-------");
-        System.out.println(J.i);
+    public static void main(String[] args) {
+        Object lock = new Object();
+        Object lock1 = new Object();
+
+        for (int i = 0; i < 10; i++) {
+            new Thread( () -> {
+                synchronized (lock){
+                    try {
+                        Thread.sleep(101100000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, "mythread" + i).start();
+        }
+
+        for (int i = 0; i < 33; i++) {
+            new Thread( () -> {
+                synchronized (lock1){
+                    try {
+                        Thread.sleep(101100000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, "mythread lock2" + i).start();
+        }
     }
 }
 class T{

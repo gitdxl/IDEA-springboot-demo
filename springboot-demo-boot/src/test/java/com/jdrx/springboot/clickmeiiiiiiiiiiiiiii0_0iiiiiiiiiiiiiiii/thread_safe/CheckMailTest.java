@@ -17,11 +17,9 @@ public class CheckMailTest {
         final AtomicBoolean hasNewMail = new AtomicBoolean(false);
         try {
             for (final String host : hosts)
-                exec.execute(new Runnable() {
-                    public void run() {
-                        if (checkMail(host))
-                            hasNewMail.set(true);
-                    }
+                exec.execute(() -> {
+                    if (checkMail(host))
+                        hasNewMail.set(true);
                 });
             System.out.println("任务提交成功");
         } finally {
