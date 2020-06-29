@@ -21,6 +21,8 @@ public class StringTest {
         //                                          就指向它。返回的对象始终是在堆中新创建的String。
         System.out.println(c == a + b); // false
         System.out.println(c == a + "world"); // false
+
+        //dev branch vv
     }
 
 }
