@@ -11,30 +11,11 @@ import java.util.concurrent.SynchronousQueue;
  * @date : 2018/09/17 14:57
  */
 public class ThreadLocalTest {
-    public static void main(String[] args){
-        SynchronousQueue sq = new SynchronousQueue();
-        new Thread(()->{
-            for (int i = 0; i < 10; i++) {
-                try {
-                    sq.put(i);
-                    System.out.println("数据开始被消费:" + i);
-                } catch (InterruptedException e) {
-                }
-            }
-        }).start();
+    private static final ThreadLocal threadLocal = new ThreadLocal();
 
-        for (int i = 0; i < 3; i++) {
-            new Thread(()->{
-                while (true){
-                    try {
-                        Object t = sq.take();
-                        System.out.println(Thread.currentThread().getName()+"  数据已经被消费:" + t);
-                        Thread.sleep(10000);
-                    } catch (Exception e) {
-                    }
-                }
-            }).start();
-        }
+
+    public static void main(String[] args){
+
 
     }
 }
