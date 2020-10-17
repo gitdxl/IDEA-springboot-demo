@@ -39,6 +39,14 @@ public class DemoApi {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
+
+
+	@ApiOperation(value="testttt",notes = "notess")
+	@RequestMapping(value="testtttt",method=RequestMethod.POST)
+	public String testtt(@ApiParam(name="id",value="用户id",required=true) @RequestParam Integer id){
+		return "success";
+//		return "hello world!!!";
+	}
 	@ApiOperation(value="获取用户信息",notes = "notess")
 	@RequestMapping(value="getUserInfo",method=RequestMethod.POST)
 	public UserPO test1(@ApiParam(name="id",value="用户id",required=true) @RequestParam Integer id){
