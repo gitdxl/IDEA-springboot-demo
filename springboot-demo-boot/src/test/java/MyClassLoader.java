@@ -1,5 +1,3 @@
-package com.jdrx.springboot.clickmeiiiiiiiiiiiiiii0_0iiiiiiiiiiiiiiii.classloader_test;
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -15,7 +13,7 @@ public class MyClassLoader extends ClassLoader {
 
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-        String className = name.substring(name.lastIndexOf(".") + 1) + ".class";
+//        String className = name.substring(name.lastIndexOf(".") + 1) + ".class";
         InputStream is = getClass().getResourceAsStream("java/lang/String" + ".class");
         if(is == null){
             return super.loadClass(name);
