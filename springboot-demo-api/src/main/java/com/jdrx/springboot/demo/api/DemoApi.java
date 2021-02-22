@@ -48,7 +48,7 @@ public class DemoApi {
 //		return "hello world!!!";
 	}
 	@ApiOperation(value="获取用户信息",notes = "notess")
-	@RequestMapping(value="getUserInfo",method=RequestMethod.POST)
+	@RequestMapping(value="ggetUserInfo",method=RequestMethod.POST)
 	public UserPO test1(@ApiParam(name="id",value="用户id",required=true) @RequestParam Integer id){
 		System.out.println(user.getNamePrefix()+"------");
 		return userDao.getById(id);

@@ -28,8 +28,36 @@
         </dependency >
 
     </dependencies>
+
+    <properties>
+        <docker.image.prefix>registry.aliyuncs.com/linhuatest</docker.image.prefix>
+    </properties>
+
     <build>
     <plugins>
+        <!-- docker插件 -->
+        <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <configuration>
+                <imageName>springboot-demo</imageName>
+                <!--dockerfile文件所在的目录-->
+                <dockerDirectory>src/main/docker</dockerDirectory>
+                <resources>
+                    <resource>
+                        <targetPath>/</targetPath>
+                        <directory>${project.build.directory}</directory>
+                        <include>${project.build.finalName}.jar</include>
+                    </resource>
+                </resources>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
